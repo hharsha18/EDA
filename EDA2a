@@ -1,0 +1,295 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bc51dd6e-1457-4f2b-bedf-50ccc4109822",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array: [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]\n",
+      "ndim: 1\n",
+      "shape: (20,)\n",
+      "size: 20\n",
+      "dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.arange(1, 21)\n",
+    "print(\"Array:\", arr)\n",
+    "print(\"ndim:\", arr.ndim)      \n",
+    "print(\"shape:\", arr.shape)    \n",
+    "print(\"size:\", arr.size)      \n",
+    "print(\"dtype:\", arr.dtype)    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "90d2095d-1a8c-40fa-8e79-e49fbed920d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original array: [30 26  9 88 57 57 99  6 33 46]\n",
+      "Sorted with np.sort(): [ 6  9 26 30 33 46 57 57 88 99]\n",
+      "After np.sort(), original still: [30 26  9 88 57 57 99  6 33 46]\n",
+      "After x.sort(), original is now: [ 6  9 26 30 33 46 57 57 88 99]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "x = np.random.randint(0, 100, size=10)\n",
+    "print(\"Original array:\", x)\n",
+    "sorted_copy = np.sort(x)\n",
+    "print(\"Sorted with np.sort():\", sorted_copy)\n",
+    "print(\"After np.sort(), original still:\", x)\n",
+    "x.sort()\n",
+    "print(\"After x.sort(), original is now:\", x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "696656f2-204e-41ea-bc04-f5127f069184",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array:\n",
+      " [[44 47  0  3  3]\n",
+      " [39  9 19 21 50]\n",
+      " [36 23  6 24 24]\n",
+      " [12  1 38 39 23]]\n",
+      "Item size: 4\n",
+      "Total bytes: 80\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "np.random.seed(0)\n",
+    "arr = np.random.randint(0, 51, size=(4, 5))\n",
+    "print(\"Array:\\n\", arr)\n",
+    "print(\"Item size:\", arr.itemsize)\n",
+    "print(\"Total bytes:\", arr.nbytes)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "1cb00743-4af1-495d-9121-b194b9ad3bb6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array:\n",
+      " [[ 1  2  3  4]\n",
+      " [ 5  6  7  8]\n",
+      " [ 9 10 11 12]]\n",
+      "Element at row 2, col 3: 7\n",
+      "Last row: [ 9 10 11 12]\n",
+      "Last column: [ 4  8 12]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.arange(1, 13).reshape(3, 4)\n",
+    "print(\"Array:\\n\", arr)\n",
+    "print(\"Element at row 2, col 3:\", arr[1, 2])\n",
+    "print(\"Last row:\", arr[-1])\n",
+    "print(\"Last column:\", arr[:, -1])\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "705c26a8-c740-4cfb-b8f5-1eb36a4d5ded",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original Array:\n",
+      " [[ 1  2  3  4]\n",
+      " [ 5  6  7  8]\n",
+      " [ 9 10 11 12]]\n",
+      "\n",
+      "(a) First 2 rows & 2 cols:\n",
+      " [[1 2]\n",
+      " [5 6]]\n",
+      "\n",
+      "(b) Every alternate column:\n",
+      " [[ 1  3]\n",
+      " [ 5  7]\n",
+      " [ 9 11]]\n",
+      "\n",
+      "(c) Columns reversed:\n",
+      " [[ 4  3  2  1]\n",
+      " [ 8  7  6  5]\n",
+      " [12 11 10  9]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.arange(1, 13).reshape(3, 4)\n",
+    "print(\"Original Array:\\n\", arr)\n",
+    "subarray = arr[:2, :2]\n",
+    "print(\"\\n(a) First 2 rows & 2 cols:\\n\", subarray)\n",
+    "alternate_cols = arr[:, ::2]\n",
+    "print(\"\\n(b) Every alternate column:\\n\", alternate_cols)\n",
+    "reversed_cols = arr[:, ::-1]\n",
+    "print(\"\\n(c) Columns reversed:\\n\", reversed_cols)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "721d6ac9-3042-4187-a5c9-e2092fcfd709",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Structured array using a compound data type\n",
+      "[('name', '<U10'), ('age', '<i4'), ('weight', '<f8')]\n",
+      "Filled structured array\n",
+      "[('alice', 25, 55. ) ('bob', 45, 85.5) ('cathy', 37, 68. )\n",
+      " ('doug', 19, 61.5)]\n",
+      "All names\n",
+      "['alice' 'bob' 'cathy' 'doug']\n",
+      "First row of data\n",
+      "('alice', 25, 55.0)\n",
+      "Name from last row\n",
+      "doug\n",
+      "Names where age is under 30\n",
+      "['alice' 'doug']\n",
+      "[('name', '<U10'), ('age', '<i4'), ('weight', '<f8')]\n",
+      "[('name', '<U10'), ('age', '<i8'), ('weight', '<f4')]\n",
+      "[('name', 'S10'), ('age', '<i4'), ('weight', '<f8')]\n",
+      "[('f0', 'S10'), ('f1', '<i4'), ('f2', '<f8')]\n",
+      "(0, [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]])\n",
+      "[[0. 0. 0.]\n",
+      " [0. 0. 0.]\n",
+      " [0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "name = ['alice', 'bob', 'cathy', 'doug']\n",
+    "age = [25, 45, 37, 19]\n",
+    "weight = [55.0, 85.5, 68.0, 61.5]\n",
+    "\n",
+    "data = np.zeros(\n",
+    "    4,\n",
+    "    dtype={\n",
+    "        'names': ('name', 'age', 'weight'),\n",
+    "        'formats': ('U10', 'i4', 'f8')\n",
+    "    }\n",
+    ")\n",
+    "\n",
+    "print(\"Structured array using a compound data type\")\n",
+    "print(data.dtype)\n",
+    "\n",
+    "data['name'] = name\n",
+    "data['age'] = age\n",
+    "data['weight'] = weight\n",
+    "\n",
+    "print(\"Filled structured array\")\n",
+    "print(data)\n",
+    "\n",
+    "print(\"All names\")\n",
+    "print(data['name'])\n",
+    "\n",
+    "print(\"First row of data\")\n",
+    "print(data[0])\n",
+    "\n",
+    "print(\"Name from last row\")\n",
+    "print(data[-1]['name'])\n",
+    "\n",
+    "print(\"Names where age is under 30\")\n",
+    "print(data[data['age'] < 30]['name'])\n",
+    "\n",
+    "\n",
+    "# Different ways to create a structured data type\n",
+    "\n",
+    "print(np.dtype({\n",
+    "    'names': ('name', 'age', 'weight'),\n",
+    "    'formats': ('U10', 'i4', 'f8')\n",
+    "}))\n",
+    "\n",
+    "print(np.dtype({\n",
+    "    'names': ('name', 'age', 'weight'),\n",
+    "    'formats': ((np.str_, 10), int, np.float32)\n",
+    "}))\n",
+    "\n",
+    "print(np.dtype([\n",
+    "    ('name', 'S10'),\n",
+    "    ('age', 'i4'),\n",
+    "    ('weight', 'f8')\n",
+    "]))\n",
+    "\n",
+    "print(np.dtype('S10,i4,f8'))\n",
+    "\n",
+    "\n",
+    "# Structured array with a 3x3 matrix\n",
+    "tp = np.dtype([\n",
+    "    ('id', 'i8'),\n",
+    "    ('mat', 'f8', (3, 3))\n",
+    "])\n",
+    "\n",
+    "x = np.zeros(1, dtype=tp)\n",
+    "\n",
+    "print(x[0])\n",
+    "print(x['mat'][0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "efb04731-a0dd-42af-80ce-5d0ef29b4766",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
